@@ -80,12 +80,12 @@ for i in range(15):
     
     # Delete /etc/exports and copy new    
     node.addService(pg.Execute(shell="sh", command="sudo rm /etc/exports"))
-    node.addService(pg.Execute(shell="sh", command="sudo cp /local/repository/exports_head /etc/exports"))
+    node.addService(pg.Execute(shell="sh", command="sudo cp /local/repository/exports_head/etc/exports"))
     node.addService(pg.Execute(shell="sh", command="sudo chmod 777 /etc/exports"))
     node.addService(pg.Execute(shell="sh", command="sudo exportfs -a"))
     
     # Mount /scratch folder hosted on "storage"
-    node.addService(pg.Execute(shell="sh", command="sudo mount 192.168.1.3:/scratch /scratch"))
+    node.addService(pg.Execute(shell="sh", command="sudo mount 192.168.1.3:/scratch/scratch"))
     node.addService(pg.Execute(shell="sh", command="sudo su AN899916 -c \"echo '192.168.1.3:/scratch /scratch nfs defaults 0 0' >> /etc/fstab\""))
     
     
@@ -104,7 +104,7 @@ for i in range(15):
     
     # Delete /etc/exports and copy new    
     node.addService(pg.Execute(shell="sh", command="sudo rm /etc/exports"))
-    node.addService(pg.Execute(shell="sh", command="sudo cp /local/repository/exports_storage /etc/exports"))
+    node.addService(pg.Execute(shell="sh", command="sudo cp /local/repository/exports_storage/etc/exports"))
     node.addService(pg.Execute(shell="sh", command="sudo chmod 777 /etc/exports"))
     node.addService(pg.Execute(shell="sh", command="sudo exportfs -a"))
     
@@ -115,12 +115,12 @@ for i in range(15):
     node.addService(pg.Execute(shell="sh", command="sudo chmod 777 /software"))
     
     # Mount /scratch folder hosted on "storage"
-    node.addService(pg.Execute(shell="sh", command="sudo mount 192.168.1.3:/scratch /scratch"))
-    node.addService(pg.Execute(shell="sh", command="sudo su AN899916 -c \"echo '192.168.1.3:/scratch /scratch nfs defaults 0 0' >> /etc/fstab\""))
+    node.addService(pg.Execute(shell="sh", command="sudo mount 192.168.1.3:/scratch/scratch"))
+    node.addService(pg.Execute(shell="sh", command="sudo su AN899916 -c \"echo '192.168.1.3:/scratch/scratch nfs defaults 0 0' >> /etc/fstab\""))
 
     # Mount /software folder hosted on "head"
-    node.addService(pg.Execute(shell="sh", command="sudo mount 192.168.1.1:/software /software"))
-    node.addService(pg.Execute(shell="sh", command="sudo su AN899916 -c \"echo '192.168.1.1:/software /software nfs defaults 0 0' >> /etc/fstab\""))
+    node.addService(pg.Execute(shell="sh", command="sudo mount 192.168.1.1:/software/software"))
+    node.addService(pg.Execute(shell="sh", command="sudo su AN899916 -c \"echo '192.168.1.1:/software/software nfs defaults 0 0' >> /etc/fstab\""))
 
     # Add MPI to PATH
     node.addService(pg.Execute(shell="sh", command="sudo chmod 777 /local/repository/scripts/mpi_path_setup.sh"))
